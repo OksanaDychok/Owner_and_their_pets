@@ -1,5 +1,5 @@
 ### Implement the application
-### using ASP.NET Web.APi + AngularJs + SQLite
+### using ASP.NET Web.APi + AngularJs + SQL Server
 
 ### First page: list of all users
 ![](https://lh3.googleusercontent.com/E5HnNIw121_Y8VR4qkPBoZMiO9mZF-4tuIoUil4JIHPd5ISPDo9a_0LR-FD-ZX1mMY-HYvwsQ4hn8FNuYoBpqLyOuMe-Ste0DJgFgKVo5mVRMJ-a68kdjviupNP2ZyPTl5a4exrl)
