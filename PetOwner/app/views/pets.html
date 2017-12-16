@@ -1,0 +1,44 @@
+﻿<div>
+    <h2 align="center">{{owner.Name}}`s Pets</h2>
+
+    <br />
+
+    <p><a href="/">Back to all Users</a></p>
+
+    <div align="center">
+        <form class="form-inline">
+            <div class="form-group">
+                <input class="form-control" placeholder="Enter Pet`s Name" [required="string" ] data-ng-model="petname" />
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default" data-ng-click="postPet();">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+    <h5>Total count: {{petsCount}}</h5>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th ng-click="sortBy('Name')">
+                Name
+                <span ng-show="propertyName === 'Name' && !reverse" class="fa fa-caret-down pull-right"></span>
+                <span ng-show="propertyName === 'Name' && reverse" class="fa fa-caret-up pull-right"></span>
+            </th>      
+            <th></th>
+        </tr>
+        <tbody data-ng-repeat="pet in pets | orderBy:propertyName:reverse | limitTo: itemsPerPage: (currentPage-1)*itemsPerPage">
+            <tr>
+                <td>{{pet.Name}}</td>
+                <td><input type="button" id="Delete" class="btn btn-default pull-right" value="Delete" data-ng-click="deletePet(pet.Id)" /> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div align="center">
+        <ul class="pagination-sm"
+            uib-pagination total-items="petsCount"
+            items-per-page="itemsPerPage"
+            ng-model="currentPage"></ul>
+    </div>
+</div>

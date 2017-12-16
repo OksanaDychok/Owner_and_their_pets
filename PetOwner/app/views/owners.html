@@ -1,0 +1,44 @@
+﻿<div id="tblSubs">
+    <div align="center">
+        <h2>All users</h2>
+
+        <br />
+
+        <form class="form-inline">
+            <div class="form-group">
+                <input class="form-control" id="email" placeholder="Enter Pet Owner`s Name" [required="string" ] data-ng-model="ownername" />
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default" data-ng-click="postOwners();">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <h5>Total count: {{owners.length}}</h5>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th ng-click="sortBy('Name')">
+                Name
+                <span ng-show="propertyName === 'Name' && !reverse" class="fa fa-caret-down pull-right"></span>
+                <span ng-show="propertyName === 'Name' && reverse" class="fa fa-caret-up pull-right"></span>
+            </th>
+            <th>Pets count</th>
+        </tr>
+        <tbody data-ng-repeat="owner in owners | orderBy:propertyName:reverse | limitTo: itemsPerPage: (currentPage-1)*itemsPerPage ">
+            <tr>
+                <td><a href="#!owners/{{owner.Id}}">{{owner.Name}}</a></td>
+                <td>{{owner.Pets.length}}
+                <input type="button" id="Delete" class="btn btn-default pull-right" value="Delete" data-ng-click="deleteOwner(owner.Id)"/> </td>  
+            </tr>
+        </tbody>
+    </table>
+
+    <div align="center">
+        <ul class="pagination-sm"
+            uib-pagination total-items="ownerCount"
+            items-per-page="itemsPerPage"
+            ng-model="currentPage"></ul>
+    </div>
+</div>
